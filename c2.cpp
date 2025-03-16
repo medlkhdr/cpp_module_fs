@@ -7,11 +7,16 @@ stuff , for this file we gonna see just something like array implementation and 
 #include <array>
 #include <vector>
 #include <list>
+#include <set>
+#include<deque>
+using std::deque;
+using std::set;
 // using namespace std;
 using std::array;
 using std::cin;
 using std::cout;
 using std::endl;
+
 using std::list;
 using std::string;
 using std::vector;
@@ -55,5 +60,37 @@ int main()
   nums2.pop_front();
   for(int num: nums2)
     cout << num << endl;
-   
+  cout << "**************SET**************" << endl;
+  set<int> nset = {3, 2, 1};
+  cout << "calling set and give it unorederd values so we can see what will happend " << endl;
+  for(int num: nset)
+    cout << num << endl;
+  //i give it the set 3 2 1 , and after we saw the "parcours" of thi containers i guesss it do sort them
+  cout << "**************DEQUE**************" << endl;
+  deque<int> ndeque = {1, 2, 3};
+  for(int num: ndeque)
+    cout << num << endl;
+  cout << "push front and back" << endl;
+  ndeque.push_back(10);
+  ndeque.push_front(101);
+  for(int num: ndeque)
+    cout << num << endl;
+    cout << "pop front and back" << endl;
+    ndeque.pop_back();
+    ndeque.pop_front();
+    for(int num: ndeque)
+      cout << num << endl;
+  cout << "**************ITERATEURS**************" << endl;
+  cout << "Les itérateurs permettent de parcourir les conteneurs sans dépendre de leur implémentation sous - jacente.Cest un objet qui fonctionne comme un pointeur." << endl;
+  cout << "we gonna test it with the list container" << endl;
+  list<int> setn = {1, 2 , 3 , 4 ,5 };
+  //simple method
+  cout << "simple method" << endl;
+  list<int>::iterator it = setn.begin();
+  for (int num : setn)
+    cout << num << endl;
+  cout << "iterator method" << endl;
+  for (; it != setn.end(); ++it)
+    cout << *it << endl;
+  cout << "here we are ending with this :|, thanks";
 }
