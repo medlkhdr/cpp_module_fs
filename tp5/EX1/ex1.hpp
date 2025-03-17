@@ -1,6 +1,7 @@
 //header file ex1.hpp
 #ifndef EX1_HPP
 #define EX1_HPP
+
 #include <iostream>
 #include <cmath>
 class Point
@@ -13,8 +14,8 @@ class Point
     void afficher();
     void homothetie(double ho);
     void rotation(double angle);
-    double rho() const;
-    double theta() const;
-    void affichePol() const; 
+    double rho() ;
+    double theta();
+    void affichePol(); 
 };
 #endif
