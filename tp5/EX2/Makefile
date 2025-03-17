@@ -1,6 +1,6 @@
 CC = c++
-NAME = ex1
-SRCS = ex1.cpp main.cpp
+NAME = ex2
+SRCS = ex2.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME) clean 

@@ -9,8 +9,7 @@ void Point::deplace(float dx , float dy)
 }
 void Point::afficher()
 {
-  std::cout << "point x = " << x << std::endl;
-  std::cout << "point y = " << y << std::endl;
+  cout << "Les coordonnes du point p1 sont : (" << x << ","<<  y << ")" << endl;
 }
 void Point::homothetie(double ho)
 {
