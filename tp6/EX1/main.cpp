@@ -1,11 +1,18 @@
 #include "class.hpp"
+
 int main()
 {
-  Vecteur a(10);
-  Vecteur b = a ;
-  a.afficher();
+    Vecteur v1(3, 2.0);
+    Vecteur v2(3, 1.5);
 
- double s =  a.prod_scl(b);
+    v1.afficher();
+    v2.afficher();
 
- cout << s << endl ;
+    Vecteur somme = v1.somme(v2);
+    somme.afficher();
+
+    double produit = v1.prod_scl(v2);
+    cout << "Produit scalaire : " << produit << endl;
+
+    return 0;
 }

@@ -1,45 +1,63 @@
 #include "class.hpp"
 
-Vecteur::Vecteur(int n )
+Vecteur::Vecteur(int n)
 {
-  v.resize(n);
-  for(int i = 0 ; i < n ; i++)
-    v[i] = 0.0;
-
-}
-Vecteur::Vecteur(int n , double val)
-{
-  std::cout << "constructeur \n";
-  v.resize(n);
-  for(int i = 0 ; i < n ; i++)
-    v[i]  = val ;
+    cout << "Constructeur Vecteur(int) appelé.\n";
+    v.resize(n, 0.0);
 }
 
-Vecteur::Vecteur(const Vecteur& autre) : v(autre.v) {
-    std::cout << "Constructeur de recopie appelé.\n";
+Vecteur::Vecteur(int n, double val)
+{
+    cout << "Constructeur Vecteur(int, double) appelé.\n";
+    v.resize(n, val);
 }
+
+Vecteur::Vecteur(const Vecteur& autre) : v(autre.v)
+{
+    cout << "Constructeur de recopie appelé.\n";
+}
+
 void Vecteur::afficher()
 {
-  std::cout << "constructeur \n";
-  for(double c : v)
-    cout << "vecteur :: " << c << endl ;
+    cout << "Affichage du vecteur :\n";
+    int i = 1;
+    for (double c : v)
+        cout << "  Élément " << i++ << " : " << c << endl;
 }
 
 double Vecteur::prod_scl(Vecteur a)
 {
-  if(v.size() != a.v.size())
-    return 0.0 ;
-  int size = v.size();
-  double produit_scalaire = 0.0 ;
+    cout << "Produit scalaire appelé.\n";
+    if (v.size() != a.v.size())
+    {
+        cout << "  Erreur : dimensions incompatibles.\n";
+        return 0.0;
+    }
 
-  for(int i = 0 ; i < size ; i++)
-  {
-    produit_scalaire += a.v[i] * v[i]; 
-  }
-  return produit_scalaire ;
+    double produit_scalaire = 0.0;
+    for (size_t i = 0; i < v.size(); ++i)
+        produit_scalaire += v[i] * a.v[i];
+
+    return produit_scalaire;
+}
+
+Vecteur Vecteur::somme(Vecteur m)
+{
+    cout << "Somme de deux vecteurs appelée.\n";
+    if (v.size() != m.v.size())
+    {
+        cout << "  Erreur : dimensions incompatibles.\n";
+        return Vecteur(0);  // retourne un vecteur vide
+    }
+
+    Vecteur sum(v.size());
+    for (size_t i = 0; i < v.size(); ++i)
+        sum.v[i] = v[i] + m.v[i];
+
+    return sum;
 }
 
 Vecteur::~Vecteur()
 {
-  std::cout << "Deconstructeur \n";
+    cout << "Destructeur appelé.\n";
 }
